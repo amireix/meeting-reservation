@@ -25,9 +25,6 @@ use function PHPSTORM_META\type;
 
 Route::get('/', function () {
 
-    return new RoomResource (room::where('id',2)->with(['slots'=>function($query){
-        $query->whereId(33)->with('reservation');
-    }])->first());
-
+    return room::has('reservations')->get();
     return view('welcome');
 });
