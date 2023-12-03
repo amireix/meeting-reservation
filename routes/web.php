@@ -1,7 +1,12 @@
 <?php
+
+use App\Http\Resources\RoomResource;
+use App\Http\Resources\SlotResouce;
 use Carbon\Carbon;
 
 use App\Models\room;
+use App\Models\slot;
+use App\Models\reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +25,9 @@ use function PHPSTORM_META\type;
 
 Route::get('/', function () {
 
+    return new RoomResource (room::where('id',2)->with(['slots'=>function($query){
+        $query->whereId(33)->with('reservation');
+    }])->first());
 
     return view('welcome');
 });

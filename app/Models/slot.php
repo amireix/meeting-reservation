@@ -28,4 +28,8 @@ class slot extends Model
     use HasFactory;
 
     protected $fillable = [];
+
+    public function reservation(){
+        return $this->hasOne(reservation::class,'slot_id');
+    }
 }
