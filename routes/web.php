@@ -25,6 +25,10 @@ use function PHPSTORM_META\type;
 
 Route::get('/', function () {
 
-    return room::has('reservations')->get();
+    // $rooms =  RoomResource::collection (room::with(['slots'=>function($query){
+    //     $query->with('reservation');
+    // }])->get());
+    // return response()->json($rooms,200);
+
     return view('welcome');
 });

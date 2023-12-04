@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  */
 class reservation extends Model
 {
+    protected $guarded = [];
     public function room(){
         return $this->belongsTo(room::class,'room_id','id');
     }
