@@ -8,7 +8,7 @@ use App\Models\room;
 use App\Models\slot;
 use DB;
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $rooms = room::get(['id','name']);
+        $rooms = room::get(['id','name'])->whereIn('id', [4, 5, 6]);
 
      foreach($rooms as $room){
         $datetime = Carbon::createFromFormat('h:i A','9:00 PM');

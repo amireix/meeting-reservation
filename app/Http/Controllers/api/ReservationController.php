@@ -15,13 +15,11 @@ class ReservationController extends Controller
         // $sucess = $slot->reservation()->store($request->all());
        try{
             $reservation = reservation::create($request->all());
-            return response()->json('',200);
+            return response()->json($reservation,200);
        }
        catch(\Illuminate\Database\QueryException $exception){
             return response()->json('',404);
        }
-
-
 
     }
 }

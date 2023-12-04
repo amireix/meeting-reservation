@@ -9,7 +9,7 @@ use App\Models\slot;
 use App\Models\reservation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
+use Inertia\Inertia;
 use function PHPSTORM_META\type;
 
 /*
@@ -30,5 +30,5 @@ Route::get('/', function () {
     // }])->get());
     // return response()->json($rooms,200);
 
-    return view('welcome');
+    return Inertia::render('test');
 });
